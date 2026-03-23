@@ -12,8 +12,6 @@ const subscriptionSchema = new mongoose.Schema({
          type: Number,
         required: [true, "Please enter a price"],
         min: [0, 'Price must be greater than 0']
-
-
     },
 
     currency: {
@@ -25,7 +23,7 @@ const subscriptionSchema = new mongoose.Schema({
 
     frequency: {
          type: String,
-    enum: ["daily", "weekly", "monthly", "yearly"],
+         enum: ["daily", "weekly", "monthly", "yearly"],
 
     },
 
@@ -70,7 +68,7 @@ const subscriptionSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-subscriptionSchema.pre('save', function (next) {
+subscriptionSchema.pre('save', function() {
     if (!this.renewalDate){
      const renewalPeriods = {
          daily: 1,
@@ -87,8 +85,7 @@ subscriptionSchema.pre('save', function (next) {
         this.status = 'expired';
     }
 
-    next();
 })
 
-const subscription = mongoose.model('Subscription', subscriptionSchema);
-export default subscription;
+const Subscription = mongoose.model('Subscription', subscriptionSchema);
+export default Subscription;
