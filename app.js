@@ -21,15 +21,19 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/subscription', subscriptionRoute)
 app.use('/api/v1/workflows', workflowRoutes)
 
-app.use(errorMiddleware)
-
 app.get("/", (req, res) => {
 res.send( "welcome to my first api")
 })
+
+app.use(errorMiddleware)
 
 app.listen(PORT, async () => {
     console.log(`Listening on  http://localhost:${PORT}`);
    await connectToMongoDB()
 })
+
+connectToMongoDB().catch(err => {
+    console.error('Initial MongoDB connection error:', err);
+});
 
 export default  app;
