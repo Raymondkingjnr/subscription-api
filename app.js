@@ -1,5 +1,5 @@
 import express from "express";
-import {PORT} from "./config/env.js"
+import {PORT, NODE_ENV} from "./config/env.js"
 import userRouter from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import subscriptionRoute from "./routes/subscription.route.js";
@@ -27,9 +27,13 @@ app.get("/", (req, res) => {
 res.send( "welcome to my first api")
 })
 
-app.listen(PORT, async () => {
-    console.log(`Listening on  http://localhost:${PORT}`);
-   await connectToMongoDB()
-})
+if (NODE_ENV !== 'production') {
+    app.listen(PORT, async () => {
+        console.log(`Listening on  http://localhost:${PORT}`);
+        await connectToMongoDB();
+    });
+} else {
+    connectToMongoDB();
+}
 
 export default  app;
