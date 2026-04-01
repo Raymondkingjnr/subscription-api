@@ -47,6 +47,9 @@ importers:
       morgan:
         specifier: ~1.9.1
         version: 1.9.1
+      nodemailer:
+        specifier: ^8.0.4
+        version: 8.0.4
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -688,6 +691,10 @@ packages:
   neverthrow@7.2.0:
     resolution: {integrity: sha512-iGBUfFB7yPczHHtA8dksKTJ9E8TESNTAx1UQWW6TzMF280vo9jdPYpLUXrMN1BCkPdHFdNG3fxOt2CUad8KhAw==}
     engines: {node: '>=18'}
+
+  nodemailer@8.0.4:
+    resolution: {integrity: sha512-k+jf6N8PfQJ0Fe8ZhJlgqU5qJU44Lpvp2yvidH3vp1lPnVQMgi4yEEMPXg5eJS1gFIJTVq1NHBk7Ia9ARdSBdQ==}
+    engines: {node: '>=6.0.0'}
 
   nodemon@3.1.14:
     resolution: {integrity: sha512-jakjZi93UtB3jHMWsXL68FXSAosbLfY0In5gtKq3niLSkrWznrVBzXFNOEMJUfc9+Ke7SHWoAZsiMkNP3vq6Jw==}
@@ -1499,6 +1506,8 @@ snapshots:
   negotiator@0.6.3: {}
 
   neverthrow@7.2.0: {}
+
+  nodemailer@8.0.4: {}
 
   nodemon@3.1.14:
     dependencies:
